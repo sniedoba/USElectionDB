@@ -1,0 +1,26 @@
+<div>
+  <h3> Swing Candidates </h3>
+    <table class="table">
+      <thead>
+        <th>Election Year</th>
+        <th>Name</th>
+        <th>Party</th>
+        <th>Electoral Votes</th>
+        <th>Popular Votes</th>
+        <th>Percentage Votes</th>
+        <th>Results</th>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in $ctrl.queryResults">
+        <!--  This needs to change depending on query  -->
+        <td>{{item.YEAR}}</td>
+        <td>{{item.NAME}}</td>
+        <td>{{item.PARTY}}</td>
+        <td>{{item.ELECTORALVOTES}}</td>
+        <td>{{item.POPULARVOTE}}</td>
+        <td>{{item.PERCENTVOTE}} %</td>
+        <td>{{item.RESULTS}}</td>
+      </tr>
+    </tbody>
+    </table>
+</div>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html ng-app="prez">
+  <head>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="/css/whatever.css">
+    <script src="/angular/angular.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/main-ctrl.js"></script>
+    <script src="/js/queriesFactory.js"></script>
+    <script src="/js/stateStats.component.js"></script>
+    <script src="/js/championPoliticalParties.component.js"></script>
+    <script src="/js/thirdPartyStats.component.js"></script>
+    <script src="/js/electoralUpsets.component.js"></script>
+    <script src="/js/surpriseVictors.component.js"></script>
+    <script src="/js/biggestLosers.component.js"></script>
+    <script src="/js/firstNames.component.js"></script>
+    <script src="/js/statsByCandidate.component.js"></script>
+    <script src="/js/electionStatsByYear.component.js"></script>
+    <script src="/js/nonContiguous.component.js"></script>
+    <script src="/js/swingCandidates.component.js"></script>
+    <script src="/js/partyHistory.component.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body ng-controller="MainCtrl" style="font-family : Tahoma, Geneva, sans-serif">
+      <div class="jumbotron">
+        <div style="text-align : center">
+          <a href = "http://localhost:3000/" class="text-info-me"><h1>
+            Presidential Election Database </h1></a>
+        </div>
+      </div>
+    <div class="section">
+      <div class="container">
+        <p></p>
+        <div class = "row">
+          <div class = "col-md-2">
+            <h4 class="text-info-me" style="text-align : center">Creative Queries</h4>
+            <hr></hr>
+            <button style="width: 100%" class="btn btn-default" ng-click="switchSelectedQuery('stateStats')"> State Stats </button>
+            <button style="width: 100%" class="btn btn-default" ng-click="switchSelectedQuery('championPoliticalParties')"> Champion Parties </button>
+            <button style="width: 100%" class="btn btn-default" ng-click="switchSelectedQuery('thirdPartyStats')"> Third Party Success </button>
+            <button style="width: 100%" class="btn btn-default" ng-click="switchSelectedQuery('electoralUpsets')"> Electoral Upsets </button>
+            <button style="width: 100%" class="btn btn-default" ng-click="switchSelectedQuery('surpriseVictors')"> Surprise Victors </button>
+            <button style="width: 100%" class="btn btn-default" ng-click="switchSelectedQuery('biggestLosers')"> Biggest Losers </button>
+            <button style="width: 100%" class="btn btn-default" ng-click="switchSelectedQuery('firstNames')"> Most Popular Names </button>
+            <br> </br>
+            <h4 class="text-info-me" style="text-align : center">Basic Queries</h4>
+            <hr></hr>
+            <button style="width: 100%" class="btn btn-default" ng-click="switchSelectedQuery('electionStatsByYear')"> Election Stats by Year </button>
+            <button style="width: 100%" class="btn btn-default" ng-click="switchSelectedQuery('statsByCandidate')"> Stats by Candidate </button>
+            <button style="width: 100%" class="btn btn-default" ng-click="switchSelectedQuery('nonContiguous')"> Non-Contiguous Victors </button>
+            <button style="width: 100%" class="btn btn-default" ng-click="switchSelectedQuery('swingCandidates')"> Swing Candidates </button>
+            <button style="width: 100%" class="btn btn-default" ng-click="switchSelectedQuery('partyHistory')"> Party History </button>
+            <br> </br>
+            <h4 class="text-info-me" style="text-align : center">Basic Queries</h4>
+            <hr></hr>
+            <button style="width: 100%" class="btn btn-default" ng-click="switchSelectedQuery('profiles')"> Election Stats by Year </button>
+
+
+          </div>
+          <div class = "col-md-10">
+          <div ng-show="selectedQuery == ''">
+            <h2 class="text-info-me"> Welcome </h2>
+            <hr></hr>
+            <div class="row">
+              <div class="col-md-7">
+                <p class = "col-xs-offset-1" style = "text-align: justify;">
+                The United States presidential election is the indirect election
+                in which citizens of the United States who are registered to v
+                ote in one of the 50 U.S. states or the District of Columbia
+                cast ballots for members of the Electoral College, known as electors.
+                These electors then in turn cast direct votes, known as electoral
+                votes, in their respective state capitals for President and
+                Vice President of the United States. This website actually offers
+                a wide range of queries for the user to analyze some interesting historical data
+                regarding the US Presidential Elections.
+                </p>
+                <h4>Creative Querires</h4>
+                <p class = "col-xs-offset-1" style = "text-align: justify;">
+                Here we have some custom queries that go beyond the scope of the project
+                spec. You can check out some spiffy information graphics by selecting
+                <a href="#" class="text-info-me" ng-click="switchSelectedQuery('stateStats')">
+                  State Stats</a> or check out some of the
+                <a href="#" class="text-info-me" ng-click="switchSelectedQuery('firstNames')">
+                  Most Popular</a> first and last names throughout the history of the US presidential elections.
+                </p>
+                <h4>Basic Queries</h4>
+                <p class = "col-xs-offset-1" style = "text-align: justify;">
+                This section includes a few queries for some general historical election
+                data. We also allow the user to toggle the input of the query and to search
+                based on attributes such as year, poltiical party,
+                and candidate name.
+                </p>
+            </div>
+            <div class="col-md-5">
+              <img src="https://66.media.tumblr.com/b4a02698565bcc2f9936641181bb96b4/tumblr_nhsl9zyNGO1u7vv3no1_1280.jpg"
+                  style = "border-radius: 25px;" class="img-responsive"/>
+            </div>
+          </div>
+          <div class="row">
+            <h2 class="text-info-me"> Webapp Demo </h2>
+            <hr></hr>
+            <img src="img/yeah.gif" width="800" style = "border-radius: 25px;" class="img-responsive" />
+          </div>
+          </div>
+          <div ng-show="selectedQuery == 'profiles'">
+            OH YEAH
+          </div>
+          <div ng-show="selectedQuery == 'stateStats'">
+            <state-stats query-results="queryResults"></state-stats>
+          </div>
+          <div ng-show="selectedQuery == 'championPoliticalParties'">
+            <champion-political-parties query-results="queryResults"></champion-political-parties>
+          </div>
+          <div ng-show="selectedQuery == 'thirdPartyStats'">
+            <third-party-stats query-results="queryResults"></third-party-stats>
+          </div>
+          <div ng-show="selectedQuery == 'electoralUpsets'">
+            <electoral-upsets query-results="queryResults"></electoral-upsets>
+          </div>
+          <div ng-show="selectedQuery == 'surpriseVictors'">
+            <surprise-victors query-results="queryResults"></surprise-victors>
+          </div>
+          <div ng-show="selectedQuery == 'biggestLosers'">
+            <biggest-losers query-results="queryResults"></biggest-losers>
+          </div>
+          <div ng-show="selectedQuery == 'firstNames'">
+            <first-names
+              query-results="queryResults"
+              aux-results="auxResults">
+            </first-names>
+          </div>
+          <div ng-show="selectedQuery == 'electionStatsByYear'">
+            <input type="text" ng-model="electionStatYear"></input>
+            <button ng-click="switchSelectedQuery('electionStatsByYear')">
+              <i class="fa fa-fw fa-lg fa-search text-info-me"></i>
+            </button>
+            <election-stats-by-year
+              query-results="queryResults"
+              aux-results="auxResults">
+            </election-stats-by-year>
+          </div>
+          <div ng-show="selectedQuery == 'statsByCandidate'">
+            <input placeholder="Enter a name" type="text" ng-model="candidateName"></input>
+            <button ng-click="switchSelectedQuery('statsByCandidate')">
+              <i class="fa fa-fw fa-lg fa-search text-info-me"></i>
+            </button>
+            <stats-by-candidate query-results="queryResults"></stats-by-candidate>
+          </div>
+          <div ng-show="selectedQuery == 'nonContiguous'">
+            <non-contiguous query-results="queryResults"></non-contiguous>
+          </div>
+          <div ng-show="selectedQuery == 'swingCandidates'">
+            <swing-candidates query-results="queryResults"></swing-candidates>
+          </div>
+          <div ng-show="selectedQuery == 'partyHistory'">
+            <input type="text" ng-model="partyName"></input>
+            <button ng-click="switchSelectedQuery('partyHistory')">
+              <i class="fa fa-fw fa-lg fa-search text-info-me"></i>
+            </button>
+            <party-history
+              query-results="queryResults"
+              aux-results="auxResults">
+            </party-history>
+          </div>
+          <div ng-show="selectedQuery == 'profiles'">
+            <profiles query-results="queryResults"></profiles>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

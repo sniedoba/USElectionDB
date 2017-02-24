@@ -1,0 +1,41 @@
+<div>
+    <div ng-show = "$ctrl.queryResults.length == 0">
+      No Results Found: Please try entering a valid poltical party name such as "Republican"
+    </div>
+    <div ng-hide = "$ctrl.queryResults.length == 0">
+      <h3> Wins Vs Loses </h3>
+        <table class="table">
+          <thead>
+            <th>Elections Won</th>
+            <th>Elections Lost</th>
+          </thead>
+          <tbody>
+          <tr ng-repeat="item in $ctrl.auxResults">
+            <td>{{item.ELECTIONSWON}}</td>
+            <td>{{item.ELECTIONSLOST}}</td>
+          </tr>
+        </tbody>
+        </table>
+    <table class="table">
+      <thead>
+        <th>Election Year</th>
+        <th>Name</th>
+        <th>Percent Vote</th>
+        <th>Popular Votes</th>
+        <th>Electoral Votes</th>
+        <th>Results</th>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in $ctrl.queryResults">
+        <!--  This needs to change depending on query  -->
+        <td>{{item.YEAR}}</td>
+        <td>{{item.NAME}}</td>
+        <td>{{item.PERCENTVOTES}} %</td>
+        <td>{{item.POPULARVOTE}}</td>
+        <td>{{item.ELECTORALVOTES}}</td>
+        <td>{{item.RESULTS}}</td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+</div>

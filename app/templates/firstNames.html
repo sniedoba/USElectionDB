@@ -1,0 +1,35 @@
+<div>
+  <h3> Most Popular First and Last Names</h3>
+  <div class="row">
+    <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <th>First Name</th>
+        <th>Count</th>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in $ctrl.queryResults">
+        <!--  This needs to change depending on query  -->
+        <td>{{item.FIRSTNAME}}</td>
+        <td>{{item.COUNT}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+    <!-- TODO: use bootstrap groupby / filters-->
+    <div class="col-md-6">
+      <table class="table">
+        <thead>
+          <th>Last Name</th>
+          <th>Count</th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in $ctrl.auxResults">
+          <td>{{item.LASTNAME}}</td>
+          <td>{{item.COUNT}}</td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+  </div>
+</div>

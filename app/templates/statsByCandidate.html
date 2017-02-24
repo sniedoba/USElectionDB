@@ -1,0 +1,31 @@
+<div>
+    <div ng-show = "$ctrl.queryResults.length == 0">
+      No Results Found : The name you have entered does not appear to be a valid candidate name. Please try a different name like "William Howard Taft".
+    </div>
+    <div ng-hide = "$ctrl.queryResults.length == 0">
+      <h3>Presidential Statistics</h3>
+      <table class="table">
+        <thead>
+          <th>Name</th>
+          <th>Year</th>
+          <th>Party</th>
+          <th>Electoral Votes</th>
+          <th>Popular Vote</th>
+          <th>Percentage Vote</th>
+          <th>Results</th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in $ctrl.queryResults">
+            <!--  This needs to change depending on query  -->
+            <td>{{item.NAME}}</td>
+            <td>{{item.YEAR}}</td>
+            <td>{{item.PARTY}}</td>
+            <td>{{item.ELECTORALVOTES}}</td>
+            <td>{{item.POPULARVOTE}}</td>
+            <td>{{item.PERCENTVOTE}} %</td>
+            <td>{{item.RESULTS}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

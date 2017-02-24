@@ -1,0 +1,43 @@
+<div>
+    <div ng-show = "$ctrl.queryResults.length == 0">
+      No Results Found: Please try an election year between 1789 to 2016.
+    </div>
+    <div ng-hide = "$ctrl.queryResults.length == 0">
+      <h3>General Election Data</h3>
+    <table class="table">
+      <thead>
+        <th>Name</th>
+        <th>Party</th>
+        <th>Electoral Votes</th>
+        <th>Popular Vote</th>
+        <th>Percentage Vote</th>
+        <th>Results</th>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in $ctrl.queryResults">
+        <td>{{item.NAME}}</td>
+        <td>{{item.PARTY}}</td>
+        <td>{{item.ELECTORALVOTES}}</td>
+        <td>{{item.POPULARVOTE}}</td>
+        <td>{{item.PERCENTVOTE}} %</td>
+        <td>{{item.RESULTS}}</td>
+      </tr>
+    </tbody>
+  </table>
+    <h3> Pre-Election Poll Data </h3>
+      <table class="table">
+        <thead>
+          <th>Month</th>
+          <th>Name</th>
+          <th>Percentage</th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in $ctrl.auxResults">
+          <td>{{item.MONTH}}</td>
+          <td>{{item.CNAME}}</td>
+          <td>{{item.PPERCENT  *100| number:0}} %</td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+</div>

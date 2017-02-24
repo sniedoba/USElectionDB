@@ -1,0 +1,24 @@
+<div>
+  <h3> Electoral Upsets </h3>
+  <!--  query-results-item.component is the only thing that differs
+        depending on which query is being run -->
+    <table class="table">
+      <thead>
+        <th>Year</th>
+        <th>Pres</th>
+        <th>Opponent</th>
+        <th>Electoral Offset</th>
+        <th>Popular Offset</th>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in $ctrl.queryResults">
+        <!--  This needs to change depending on query  -->
+        <td>{{item.YEAR}}</td>
+        <td>{{item.PRESIDENTELECT}}</td>
+        <td>{{item.RUNNERUP}}</td>
+        <td>{{item.ELECTORALVOTEOFFSET}}</td>
+        <td>{{item.POPULARVOTEOFFSET}}</td>
+      </tr>
+    </tbody>
+    </table>
+</div>

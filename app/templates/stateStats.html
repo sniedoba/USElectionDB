@@ -1,0 +1,15 @@
+<div>
+  <h3> State Stats </h3>
+  <table class="table">
+    <thead>
+      <th>State</th>
+      <th>Presidents</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in $ctrl.queryResults">
+        <td>{{item.STATE}}</td>
+        <td>{{item.STATENUM}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

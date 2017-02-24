@@ -1,0 +1,22 @@
+<div>
+  <h3> Non Contiguous Election Winners </h3>
+  <!--  query-results-item.component is the only thing that differs
+        depending on which query is being run -->
+    <table class="table">
+      <thead>
+        <th>Candidate Name</th>
+        <th>First Win Year</th>
+        <th>Year Lost</th>
+        <th>Second Win Year</th>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in $ctrl.queryResults">
+        <!--  This needs to change depending on query  -->
+        <td>{{item.NAME}}</td>
+        <td>{{item.FIRSTWIN}}</td>
+        <td>{{item.YEARLOSTBETWEEN}}</td>
+        <td>{{item.SECONDWIN}}</td>
+      </tr>
+    </tbody>
+    </table>
+</div>

@@ -1,0 +1,18 @@
+<div>
+  <h3> Surprise Victors </h3>
+  <table class="table">
+    <thead>
+      <th>Election Year</th>
+      <th>President Name</th>
+      <th>Percent Offset</th>
+      <th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in $ctrl.queryResults">
+        <td>{{item.YEAR}}</td>
+        <td>{{item.NAME}}</td>
+        <td>{{item.PERCENTOFFSET}} %</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
